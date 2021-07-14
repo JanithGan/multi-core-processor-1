@@ -269,9 +269,9 @@ module IM (input clk,
         ram[14] = 16'd3;
         ram[15] = ENDOP;
 
-        // ram[0]  = LDAC;
-        // ram[1]  = 16'd0;
-        // ram[2]  = MVACR;
+        // ram[0] = LDAC;
+        // ram[1] = 16'd0;
+        // ram[2] = MVACR;
         // ram[3] = LDAC;
         // ram[4] = 16'd1;
         // ram[5] = ADD;
