@@ -11,6 +11,7 @@ module bus (input clk,
            input [15:0] C_out,
            input [15:0] D_out,
            input [15:0] CID_out,
+           input [15:0] TR_out,
            input PC_read_en,
            input AR_read_en,
            input AC_read_en,
@@ -23,6 +24,7 @@ module bus (input clk,
            input C_read_en,
            input D_read_en,
            input CID_read_en,
+           input TR_read_en,
            output reg [15:0] bus);
     
     always @(*) begin
@@ -48,6 +50,8 @@ module bus (input clk,
             bus = D_out;
         else if (CID_read_en == 1'b1)
             bus = CID_out;
+        else if (TR_read_en == 1'b1)
+            bus = TR_out;
     end
         
 endmodule

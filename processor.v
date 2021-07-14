@@ -22,6 +22,7 @@ module processor #(parameter cid)
     wire C_read_en;
     wire D_read_en;
     wire CID_read_en;
+    wire TR_read_en;
     
     wire PC_write_en;
     wire AR_write_en;
@@ -34,6 +35,7 @@ module processor #(parameter cid)
     wire B_write_en;
     wire C_write_en;
     wire D_write_en;
+    wire TR_write_en;
     
     wire PC_inc_en;
     wire AC_inc_en;
@@ -59,6 +61,7 @@ module processor #(parameter cid)
     wire [15:0] C_out;
     wire [15:0] D_out;
     wire [15:0] CID_out;
+    wire [15:0] TR_out;
     
     register IR (
     // inputs
@@ -155,6 +158,15 @@ module processor #(parameter cid)
     .data_out(D_out)
     );
     
+    register TR (
+    // inputs
+    .clk(clk),
+    .reg_write_en(TR_write_en),
+    .data_in(bus),
+    // outputs
+    .data_out(TR_out)
+    );
+
     CID #(.cid(cid)) CID (
     // inputs
     .data_out(CID_out)
@@ -193,6 +205,7 @@ module processor #(parameter cid)
     .C_read_en(C_read_en),
     .D_read_en(D_read_en),
     .CID_read_en(CID_read_en),
+    .TR_read_en(TR_read_en),
     //
     .PC_write_en(PC_write_en),
     .AR_write_en(AR_write_en),
@@ -206,6 +219,7 @@ module processor #(parameter cid)
     .B_write_en(B_write_en),
     .C_write_en(C_write_en),
     .D_write_en(D_write_en),
+    .TR_write_en(TR_write_en),
     //
     .PC_inc_en(PC_inc_en),
     .AC_inc_en(AC_inc_en),
@@ -229,6 +243,7 @@ module processor #(parameter cid)
     .C_out(C_out),
     .D_out(D_out),
     .CID_out(CID_out),
+    .TR_out(TR_out),
     .PC_read_en(PC_read_en),
     .AR_read_en(AR_read_en),
     .AC_read_en(AC_read_en),
@@ -241,6 +256,7 @@ module processor #(parameter cid)
     .C_read_en(C_read_en),
     .D_read_en(D_read_en),
     .CID_read_en(CID_read_en),
+    .TR_read_en(TR_read_en),
     // outputs
     .bus(bus)
     );
