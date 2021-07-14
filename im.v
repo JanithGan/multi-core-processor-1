@@ -16,6 +16,7 @@ module IM (input clk,
     parameter MUL   = 16'd21;
     parameter DIV   = 16'd23;
     parameter MOD   = 16'd25;
+    parameter LSHIFT = 16'd26;
     parameter CLAC  = 16'd27;
     parameter INAC  = 16'd28;
     parameter JPNZ  = 16'd29;
@@ -263,10 +264,20 @@ module IM (input clk,
         ram[9]  = MVACR;
         ram[10] = LDAC;
         ram[11] = 16'd2;
-        ram[12] = ADD;
+        ram[12] = LSHIFT;
         ram[13] = STAC;
         ram[14] = 16'd3;
         ram[15] = ENDOP;
+
+        // ram[0]  = LDAC;
+        // ram[1]  = 16'd0;
+        // ram[2]  = MVACR;
+        // ram[3] = LDAC;
+        // ram[4] = 16'd1;
+        // ram[5] = ADD;
+        // ram[6] = STAC;
+        // ram[7] = 16'd2;
+        // ram[8] = ENDOP;
     end
     
     integer i;
