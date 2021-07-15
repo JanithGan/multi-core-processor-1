@@ -11,6 +11,7 @@ module ALU (input [15:0] in1,
             3'd3: alu_out <= in2 * in1;
             3'd4: alu_out <= in2 / in1;
             3'd5: alu_out <= in2 % in1;
+            3'd6: alu_out <= in2 ^ in1;
         endcase
         
         if (alu_out[15] == 1'b1)
